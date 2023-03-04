@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Inter", sans-serif;
+    background-color: black;
+    color: white;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+}
+  
+nav ul{
+list-style: none;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+
+    background-color: black;
+    border-bottom: 1px solid white;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+nav .logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav .nav-items a {
+    margin: 0 1rem;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    gap: 20px;
+    position: relative;
+    box-sizing: border-box;
+    margin: 20px 0px 0px 20px;
+}
+
+#search{
+    width: 50vw;
+    height: 2rem;
+    background-color: black;
+    color: white;
+    border: 1px solid rgb(170, 169, 169);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+form input[type="submit"]{
+    width: 10rem;
+    height: 2rem;
+    background-color: white;
+    color: black;
+    border-radius: 6px;
+}
+
+.show{
+    display: grid;
+    grid-template-columns: repeat(3,20%);
+    position: relative;
+    margin: 3rem 0 0 2rem;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.show .item{
+    height: auto;
+    background-color: black;
+    border: 1px solid white;
+    background-repeat: no-repeat;
+}
+
+
+.show .item img{
+    height: 300px;
+}
+.show span{
+    color: white;
+    text-align: left;
+}
+
+.show .item{
+    display: flex;
+    flex-direction: column;
+}
+
+/* history page style started from here */
+
+.his-title{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 20px 0 0 20px;
+    box-sizing: border-box;
+}
+
+#clear{
+    width: 10rem;
+    height: 2rem;
+    background-color: white;
+    color: black;
+    border-radius: 6px;
+    position: relative;
+    margin: 0 40px 0 0; 
+    font-size: 1rem;
+}
+
+.display-his{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    top: 20px;
+}
+
+.his-item{
+    border: 1px solid rgb(170, 169, 169);
+    border-radius: 6px;
+    width: 80%;
+    height: 2rem;
+    cursor: pointer;
+}
+
+/* historyResult page style started from here */
+
+.display{
+    display: grid;
+    grid-template-columns: repeat(3,20%);
+    position: relative;
+    margin: 5rem 0 0 2rem;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.display .item{
+    height: auto;
+    background-color: black;
+    border: 1px solid white;
+    background-repeat: no-repeat;
+}
+
+
+.display .item img{
+    height: 300px;
+}
+.display span{
+    color: white;
+    text-align: left;
+}
+
+.display .item{
+    display: flex;
+    flex-direction: column;
+}
