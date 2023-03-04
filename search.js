@@ -9,6 +9,17 @@ form.addEventListener('submit',searchBook);
 let storeBooks;
 async function searchBook(e){
     e.preventDefault();
+
+    let text = searchText.value;
+    const words = text.split(" ");
+
+    let w = words.map((word) => { 
+        return word[0].toUpperCase() + word.substring(1); 
+    }).join(" ");
+
+    console.log(w);
+
+
     // console.log(searchText.value);
     let itemsDiv = document.querySelectorAll('.item');
     itemsDiv.forEach((i)=>{
@@ -20,7 +31,7 @@ async function searchBook(e){
     storeBooks = data.items;
     console.log("storeBooks >>>",storeBooks);
     let result = storeBooks.filter((item)=>{
-        return item.volumeInfo.title.includes(searchText.value) || item.volumeInfo.authors.includes(searchText.value);
+        return item.volumeInfo.title.includes(w) || item.volumeInfo.authors.includes(w);
     })
 
 
@@ -33,11 +44,11 @@ async function searchBook(e){
         console.log("result",result);
         let d = JSON.parse(localStorage.getItem("searchHistory"))
         if(d != null){
-            d[searchText.value] = result;
+            d[w] = result;
             localStorage.setItem("searchHistory",JSON.stringify(d));
         }else{
             let searchHistory = {};
-            searchHistory[searchText.value] = result;
+            searchHistory[w] = result;
             localStorage.setItem("searchHistory",JSON.stringify(searchHistory));
         }
 
