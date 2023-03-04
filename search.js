@@ -14,6 +14,7 @@ async function searchBook(e){
     itemsDiv.forEach((i)=>{
         i.remove();
     })
+
     let res = await fetch("https://www.googleapis.com/books/v1/volumes?q=percy+jackson");
     let data = await res.json();
     storeBooks = data.items;
@@ -21,7 +22,14 @@ async function searchBook(e){
     let result = storeBooks.filter((item)=>{
         return item.volumeInfo.title.includes(searchText.value) || item.volumeInfo.authors.includes(searchText.value);
     })
+
+
     if(result.length != 0){
+
+        let msgDiv = document.querySelector('.msg');
+        if(msgDiv != null) msgDiv.remove();
+
+
         console.log("result",result);
         let d = JSON.parse(localStorage.getItem("searchHistory"))
         if(d != null){
@@ -47,7 +55,9 @@ async function searchBook(e){
         }
     }
     else{
-        let msgDiv = document.querySelector('.msg');
+        let msgDiv = document.createElement('div');
+        msgDiv.className = "msg";
         msgDiv.innerHTML = '<h1>Oops Result not Found</h1>';
+        document.body.appendChild(msgDiv);
     }
 }
